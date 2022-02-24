@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProfileSection from "./ProfileSection";
+import AlbumSection from "./AlbumSection";
 
 class UserDetailPage extends Component {
   state = {
@@ -22,6 +23,7 @@ class UserDetailPage extends Component {
       <div>
         <ProfileSection selectedid={this.state.id} />
         <h1> Hii Welcome back {this.props.selectedid} </h1>
+        <AlbumSection selectedid={this.state.id} />
       </div>
     );
   }

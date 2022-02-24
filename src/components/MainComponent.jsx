@@ -62,6 +62,9 @@ class MainComponent extends Component {
                 />
               ))}
             </div>
+            <div style={{ width: 380 + "px" }}>
+              <p> </p>
+            </div>
             <div>
               <UserDetailPage selectedid={this.state.selectedUserId} />
             </div>
