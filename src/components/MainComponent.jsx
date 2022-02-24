@@ -62,7 +62,7 @@ class MainComponent extends Component {
                 />
               ))}
             </div>
-            <div style={{ width: 380 + "px" }}>
+            <div style={{ width: 280 + "px" }}>
               <p> </p>
             </div>
             <div>
