@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserList from "./UserList";
 import HeaderComponent from "./HeaderComponent";
+import UserDetailPage from "./UserDetailPage";
 
 //import HeaderComponent from "./HeaderComponent";
 
@@ -13,6 +14,7 @@ class MainComponent extends Component {
   state = {
     userlist: [],
     DataisLoaded: false,
+    selectedUserId: null,
   };
 
   componentDidMount() {
@@ -23,8 +25,13 @@ class MainComponent extends Component {
         this.setState({
           userlist: json,
           DataisLoaded: true,
+          selectedUserId: null,
         });
       });
+  }
+
+  onUserSelect(UID) {
+    this.setState({ selectedUserId: UID });
   }
 
   render() {
@@ -34,10 +41,34 @@ class MainComponent extends Component {
     if (!this.state.DataisLoaded)
       return (
         <div>
-          <h1> Pleses wait some time.... </h1>{" "}
+          <h1> Loading Please wait .... </h1>{" "}
         </div>
       );
 
+    if (this.state.selectedUserId) {
+      return (
+        <div>
+          <HeaderComponent />
+
+          <div style={divStyle}>
+            <div>
+              {List.map((user) => (
+                <UserList
+                  key={user.id}
+                  userid={user.id}
+                  username={user.name}
+                  usermail={user.email}
+                  onClick={(UID) => this.onUserSelect(UID)}
+                />
+              ))}
+            </div>
+            <div>
+              <UserDetailPage selectedid={this.state.selectedUserId} />
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <HeaderComponent />
@@ -50,6 +81,7 @@ class MainComponent extends Component {
                 userid={user.id}
                 username={user.name}
                 usermail={user.email}
+                onClick={(UID) => this.onUserSelect(UID)}
               />
             ))}
           </div>
