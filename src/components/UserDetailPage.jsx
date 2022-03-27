@@ -23,8 +23,9 @@ class UserDetailPage extends Component {
     return (
       <div>
         <ProfileSection selectedid={this.state.id} />
+        <h5>Post Section </h5>
         <PostSection selectedid={this.state.id} />
-        <h1> Hii Welcome back {this.props.selectedid} </h1>
+        <h5> Album section </h5>
         <AlbumSection selectedid={this.state.id} />
       </div>
     );

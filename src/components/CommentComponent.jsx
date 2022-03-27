@@ -35,16 +35,22 @@ class CommentComponent extends Component {
   render() {
     //const open = Boolean(this.state.anchor1);
     console.log("In album");
+    const styles = {
+      border: "5px solid rgba(0, 0, 0, 0.05)",
+      color: "black",
+    };
     return (
       <div>
         <h7> Comment section </h7>{" "}
         {this.state.CommentsDetails.map((item) => (
-          <ol key={item.id}>
-            <h7>
-              UserName: {item.name}, UserMail: {item.email}
-            </h7>
-            <h6>Comment: {item.body}</h6>
-          </ol>
+          <div style={styles}>
+            <ul key={item.id}>
+              <h7>
+                UserName: {item.name}, UserMail: {item.email}
+              </h7>
+              <h6>Comment: {item.body}</h6>
+            </ul>
+          </div>
         ))}
       </div>
     );

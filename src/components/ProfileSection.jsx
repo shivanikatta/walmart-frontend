@@ -41,10 +41,13 @@ class ProfileSection extends Component {
 
     console.log("In profile section - id is", this.props.selectedid);
     return (
-      <div style={styles}>
-        <h4> Name : {this.state.UserDetails.name} </h4>
-        <h4> Username : {this.state.UserDetails.username} </h4>
-        <h4> Email : {this.state.UserDetails.email} </h4>
+      <div>
+        <h2>Profile Section</h2>
+        <div style={styles}>
+          <h4> Name : {this.state.UserDetails.name} </h4>
+          <h4> Username : {this.state.UserDetails.username} </h4>
+          <h4> Email : {this.state.UserDetails.email} </h4>
+        </div>
       </div>
     );
   }
